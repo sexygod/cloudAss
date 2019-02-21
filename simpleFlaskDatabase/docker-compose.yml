@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres-docker:
+    image: "postgres"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - .:/db
+    container_name: postgres-docker
+  web:
+    build: app/
+    ports:
+      - "5000:5000"
+    container_name: flaskapp-docker
+    volumes:
+      - .:/code
+    depends_on:
+      - postgres-docker
