@@ -1,3 +1,6 @@
+#code partially taken from SQLAlchemy Quickstart page
+#Source: http://flask-sqlalchemy.pocoo.org/2.3/quickstart/
+
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()

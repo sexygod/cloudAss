@@ -7,41 +7,54 @@
     <meta name="description" content="Simple Database">
     <meta name="author" content="Asa Yee">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   </head>
 
   <body>
-    <h1>A Simple Flask Database</h1>
-    <div id="mainForm">
-      <form class="" action="/post_user" method="post">
-        <label>Username</label>
-        <input type="text" name="username" placeholder="asathegreat"><br>
-        <label>Email Address</label>
-        <input type="text" name="email" placeholder="asa.yee@my.uwi.edu"><br>
-        <input type="submit" name="submitButton" value="Submit">
-      </form>
-    </div>
-    <div class="">
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>Username</th>
-          <th>Email Address</th>
-        </tr>
-        {% for u in user %}
+    <div class="container">
+      <h1>A Simple Flask Database</h1>
+      <div class="container">
+        <form action="/post_user" method="post">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="asathegreat" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="text" name="email" placeholder="asa.yee@my.uwi.edu" class="form-control">
+          </div>
+          <input type="submit" name="submitButton" value="Submit" class="btn btn-primary">
+        </form>
+      </div>
+      <div class="container" style="margin-top: 40px;">
+
+        <table class="table">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email Address</th>
+          </tr>
+          {% for u in user %}
           <tr>
             <td>{{ u.id }}</td>
             <td>{{ u.username }}</td>
             <td>{{ u.email }}</td>
           </tr>
-        {% endfor %}
-      </table>
-    </div>
-    <div class="">
-      Delete User
-      <form class="" action="/delete_user" method="post">
-        <input type="text" name="username" placeholder="Username">
-        <input type="submit" name="deleteButton" value="Delete">
-      </form>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="container">
+        <label>Delete User</label>
+        <form action="/delete_user" method="post">
+          <div class="form-group">
+            <div class="form-group">
+              <input type="text" name="username" placeholder="Username" class="form-control">
+            </div>
+            <input type="submit" name="deleteButton" value="Delete" class="btn btn-primary">
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
