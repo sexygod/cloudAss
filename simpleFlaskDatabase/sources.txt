@@ -1,0 +1,11 @@
+__init__.py, app.py, models.py
+code partially taken from SQLAlchemy Quickstart page
+Source: http://flask-sqlalchemy.pocoo.org/2.3/quickstart/
+
+Dockerfile
+code partially taken from Docker Get Started page
+Source: https://docs.docker.com/get-started/part2/
+
+docker-compose.yml
+code partially taken from Docker postgres sample
+Source: https://docs.docker.com/samples/library/postgres/
