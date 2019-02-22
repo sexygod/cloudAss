@@ -9,13 +9,23 @@ app = initdb()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    user = User.query.all()
+    return render_template('index.html', user=user)
 
 @app.route('/post_user', methods=['POST'])
 def post_user():
     user = User(request.form['username'], request.form['email'])
     db.session.add(user)
     db.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/delete_user', methods=['GET', 'POST', 'DELETE'])
+def delete_user():
+    user = User.query.filter_by(username = request.form['username']).first()
+
+    db.session.delete(user)
+    db.session.commit()
+
     return redirect(url_for('index'))
 
 if (__name__ == "__main__"):

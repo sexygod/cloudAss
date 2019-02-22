@@ -20,5 +20,28 @@
         <input type="submit" name="submitButton" value="Submit">
       </form>
     </div>
+    <div class="">
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email Address</th>
+        </tr>
+        {% for u in user %}
+          <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.username }}</td>
+            <td>{{ u.email }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="">
+      Delete User
+      <form class="" action="/delete_user" method="post">
+        <input type="text" name="username" placeholder="Username">
+        <input type="submit" name="deleteButton" value="Delete">
+      </form>
+    </div>
   </body>
 </html>
