@@ -15,7 +15,6 @@ services:
     ports:
       - "5000:5000"
     container_name: flaskapp-docker
-    volumes:
-      - .:/code
     depends_on:
       - postgres-docker
+    command: ["./wait-for-it.sh", "postgres-docker:5432", "--", "python", "app.py"]
