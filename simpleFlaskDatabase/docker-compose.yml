@@ -17,4 +17,3 @@ services:
     container_name: flaskapp-docker
     depends_on:
       - postgres-docker
-    command: ["./wait-for-it.sh", "postgres-docker:5432", "--", "python", "app.py"]
